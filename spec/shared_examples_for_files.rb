@@ -17,12 +17,12 @@ shared_examples "a SequentialFile::Base" do
     context "after close" do
       it('- should write') {
         subject.write('this is text')
-        subject.close!
+        subject.close
         lambda { subject.write('this is text') }.should_not raise_exception
       }
       it('- should be readable') {
         subject.write('this is new text')
-        subject.close!
+        subject.close
         subject.write('this is after close text')
         subject.read.should =~ /this is after close text/
       }

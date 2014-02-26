@@ -19,7 +19,7 @@ describe BumpFile do
     let(:file){ BumpFile.new({ directory_path: NAMER_TEST_PATH, process_date: Date.new(2014,2,14) }) }
     subject { file }
     after(:each) do
-      subject.delete!
+      subject.delete
     end
     it_behaves_like "a SequentialFile::Base"
   end
@@ -95,7 +95,7 @@ describe BumpFile do
                                    })
       end
       after(:each) do
-        @bump_file.delete!
+        @bump_file.delete
       end
       it('- no exception') { lambda { @bump_file.write('This is bogus') }.should_not raise_exception }
       it('- can read what was written') {

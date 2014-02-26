@@ -13,7 +13,7 @@ describe SequentialFile::Base do
                                      }) }
       subject { file }
       after(:each) do
-        subject.delete!
+        subject.delete
       end
       it_behaves_like "a SequentialFile::Base"
 
@@ -30,7 +30,7 @@ describe SequentialFile::Base do
                                            }) }
       subject { file }
       after(:each) do
-        subject.delete!
+        subject.delete
       end
       it_behaves_like "a SequentialFile::Base"
 
@@ -47,7 +47,7 @@ describe SequentialFile::Base do
                                            }) }
       subject { file }
       after(:each) do
-        subject.delete!
+        subject.delete
       end
       it_behaves_like "a SequentialFile::Base"
 
