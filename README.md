@@ -86,16 +86,19 @@ See the [Network View](https://github.com/pboling/sequential_file/network) and t
 
 ## How you can help!
 
-Take a look at the `reek` list which is the file called `REEK` and stat fixing things.  Once you complete a change, run the tests:
+Take a look at the `reek` and `roodi` lists. These are the files names `REEK` and `ROODI` in the root of the gem.
+
+Just start fixing things!  Once you complete a change, run the tests:
 
 ```
-bundle exec rake test
+bundle exec rake spec
 ```
 
-If the tests pass refresh the `reek` list:
+If the tests pass refresh the `reek` and `roodi` lists and make sure things have not gotten worse:
 
 ```
 bundle exec rake reek > REEK
+bundle exec rake reek > ROODI
 ```
 
 Follow the instructions for "Contributing" below.

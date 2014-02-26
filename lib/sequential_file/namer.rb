@@ -7,18 +7,11 @@ module SequentialFile
       def initialize(options = {})
         super do
           name = options[:name]
-          if name
-            parts = name.split('.')
-            raise ArgumentError, ":name must have three parts separated by dots ('.') in order to be a valid option for #{self.class.name}" unless parts.length == 3
-            options[:filename_first_part] = parts[0]
-            options[:filename_third_part] = parts[1]
-            options[:file_extension] = '.' << parts[2]
-          end
+          name ?
+            derive_name_parts_from_name(name) :
+            set_name_parts(options[:filename_first_part], options[:filename_third_part], options[:file_extension])
           @directory_path = options[:directory_path]
           @process_date = options[:process_date] || Date.today
-          @filename_first_part = options[:filename_first_part]
-          @filename_third_part = options[:filename_third_part]
-          @file_extension = options[:file_extension]
           if options[:append]
             @last_filename_counter = self.last_used_counter
           else
@@ -42,6 +35,18 @@ module SequentialFile
     end
 
     protected
+    def set_name_parts(first_part, third_part, name_extension)
+      @filename_first_part = first_part
+      @filename_third_part = third_part
+      @file_extension = name_extension
+    end
+
+    def derive_name_parts_from_name(name_option)
+      parts = name_option.split('.')
+      raise ArgumentError, ":name must have three parts separated by dots ('.') in order to be a valid option for #{self.class.name}" unless parts.length == 3
+      set_name_parts(parts[0], parts[1], '.' << parts[2])
+    end
+
     def globular_file_parts
       chrono = get_chronometer
       with_dot = chrono.empty? ? '' : ".#{chrono}"
