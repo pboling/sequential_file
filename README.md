@@ -11,7 +11,7 @@ Sequential File makes determination of which file to process (read or write) eas
 | dependencies            |  [![Dependency Status](https://gemnasium.com/pboling/sequential_file.png)](https://gemnasium.com/pboling/sequential_file) |
 | code quality            |  [![Code Climate](https://codeclimate.com/github/pboling/sequential_file.png)](https://codeclimate.com/github/pboling/sequential_file) |
 | continuous integration  |  [![Build Status](https://secure.travis-ci.org/pboling/sequential_file.png?branch=master)](https://travis-ci.org/pboling/sequential_file) |
-| test coverage           |  [![Coverage Status](https://coveralls.io/repos/pboling/sequential_file/badge.png)](https://coveralls.io/r/pboling/sequential_file) |
+| test coverage           |  [![Coverage Status](https://coveralls.io/repos/pboling/sequential_file/badge.png)](https://coveralls.io/r/pboling/sequential_file) (Apparently Travis doesn't let me create files? Build passes locally) |
 | homepage                |  [https://github.com/pboling/sequential_file][homepage] |
 | documentation           |  [http://rdoc.info/github/pboling/sequential_file/frames][documentation] |
 | author                  |  [Peter Boling](https://coderbits.com/pboling) |
