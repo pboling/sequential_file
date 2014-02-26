@@ -30,7 +30,7 @@ Files will have four primary parts in their filenames:
 
 ## Compatibility
 
-Known to work with Ruby 2.0.0+.  Unlikely to work with Ruby 1.9.2 and below.
+Tested with Ruby 2.0.0+.  Due to the use of Ruby's 'prepend' initialization feature, will not work with anything older.
 
 There are no dependencies, gem or otherwise, this is a pure Ruby library, and will work with any sort of File-type class.
 
@@ -88,7 +88,7 @@ See the [Network View](https://github.com/pboling/sequential_file/network) and t
 
 Take a look at the `reek` and `roodi` lists. These are the files names `REEK` and `ROODI` in the root of the gem.
 
-Just start fixing things!  Once you complete a change, run the tests:
+Currently they are clean, and we like to keep them that way!  Once you complete a change, run the tests:
 
 ```
 bundle exec rake spec
