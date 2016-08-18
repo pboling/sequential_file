@@ -29,10 +29,10 @@ Gem::Specification.new do |spec|
   ############################
 
   # Gem dependency manager
-  spec.add_development_dependency(%q<bundler>, ["~> 1.5.3"])
+  spec.add_development_dependency(%q<bundler>, ["~> 1.12"])
 
   # The ruby workhorse command line tool.
-  spec.add_development_dependency(%q<rake>, ["~> 10.1.1"])
+  spec.add_development_dependency(%q<rake>, ["~> 11.2.2"])
 
   # For a test suite.
   # https://github.com/rspec/rspec
