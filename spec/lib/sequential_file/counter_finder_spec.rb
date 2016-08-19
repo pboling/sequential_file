@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SequentialFile::CounterFinder::NUMBER_REGEX do
   it('- should be a Regexp') { expect(SequentialFile::CounterFinder::NUMBER_REGEX).to be_a(Regexp)}
-  it('- should match numbers') { ('asdf5' match(expect(SequentialFile::CounterFinder::NUMBER_REGEX).to)) == 4}
+  it('- should match numbers') { expect('asdf5'.match(SequentialFile::CounterFinder::NUMBER_REGEX)).to eq(4) }
 end
 
 describe SequentialFile::CounterFinder do
