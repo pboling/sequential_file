@@ -17,9 +17,9 @@ describe SequentialFile::Base do
       end
       it_behaves_like "a SequentialFile::Base"
 
-      it('- class') { subject.class.should == SequentialFile::Base }
-      it('- complete_filename') { subject.name.should == 'access_log.FileBase.1.tsv' }
-      it('- complete_path') { subject.complete_path.should == File.join(subject.directory_path, 'access_log.FileBase.1.tsv') }
+      it('- class') { expect(subject.class).to eq(SequentialFile::Base) }
+      it('- complete_filename') { expect(subject.name).to eq('access_log.FileBase.1.tsv') }
+      it('- complete_path') { expect(subject.complete_path).to eq(File.join(subject.directory_path, 'access_log.FileBase.1.tsv')) }
     end
 
     context "process date as nil" do
@@ -34,9 +34,9 @@ describe SequentialFile::Base do
       end
       it_behaves_like "a SequentialFile::Base"
 
-      it('- class') { subject.class.should == SequentialFile::Base }
-      it('- complete_filename') { subject.name.should == "access_log.#{Date.today.strftime("%Y%m%d")}.FileBase.1.tsv" }
-      it('- complete_path') { subject.complete_path.should == File.join(subject.directory_path, "access_log.#{Date.today.strftime("%Y%m%d")}.FileBase.1.tsv") }
+      it('- class') { expect(subject.class).to eq(SequentialFile::Base) }
+      it('- complete_filename') { expect(subject.name).to eq("access_log.#{Date.today.strftime("%Y%m%d")}.FileBase.1.tsv") }
+      it('- complete_path') { expect(subject.complete_path).to eq(File.join(subject.directory_path, "access_log.#{Date.today.strftime("%Y%m%d")}.FileBase.1.tsv")) }
     end
 
     context "process date as word" do
@@ -51,9 +51,9 @@ describe SequentialFile::Base do
       end
       it_behaves_like "a SequentialFile::Base"
 
-      it('- class') { subject.class.should == SequentialFile::Base }
-      it('- complete_filename') { subject.name.should == 'access_log.today.FileBase.1.tsv' }
-      it('- complete_path') { subject.complete_path.should == File.join(subject.directory_path, 'access_log.today.FileBase.1.tsv') }
+      it('- class') { expect(subject.class).to eq(SequentialFile::Base) }
+      it('- complete_filename') { expect(subject.name).to eq('access_log.today.FileBase.1.tsv') }
+      it('- complete_path') { expect(subject.complete_path).to eq(File.join(subject.directory_path, 'access_log.today.FileBase.1.tsv')) }
     end
   end
 

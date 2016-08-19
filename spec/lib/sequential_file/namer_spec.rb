@@ -28,9 +28,9 @@ describe BumpFile do
       before(:each) do
         @bump_file = BumpFile.new({ directory_path: NAMER_TEST_PATH, process_date: Date.new(2014,2,14) })
       end
-      it('- class') { @bump_file.class.should == BumpFile }
-      it('- name') { @bump_file.name.should == '.20140214..1.json' }
-      it('- complete_path') { @bump_file.complete_path.should == File.join(@bump_file.directory_path, '.20140214..1.json') }
+      it('- class') { expect(@bump_file.class).to eq(BumpFile) }
+      it('- name') { expect(@bump_file.name).to eq('.20140214..1.json') }
+      it('- complete_path') { expect(@bump_file.complete_path).to eq(File.join(@bump_file.directory_path, '.20140214..1.json')) }
     end
     context "realistic options" do
       before(:each) do
@@ -41,9 +41,9 @@ describe BumpFile do
                                      process_date: Date.new(2014,2,14)
                                    })
       end
-      it('- filename_counter') { @bump_file.last_filename_counter.should == 1 }
-      it('- name') { @bump_file.name.should == 'asdf.20140214.qwer.1.json' }
-      it('- complete_path') { @bump_file.complete_path.should == File.join(@bump_file.directory_path, 'asdf.20140214.qwer.1.json') }
+      it('- filename_counter') { expect(@bump_file.last_filename_counter).to eq(1) }
+      it('- name') { expect(@bump_file.name).to eq('asdf.20140214.qwer.1.json') }
+      it('- complete_path') { expect(@bump_file.complete_path).to eq(File.join(@bump_file.directory_path, 'asdf.20140214.qwer.1.json')) }
     end
     context "name option" do
       before(:each) do
@@ -53,9 +53,9 @@ describe BumpFile do
                                      process_date: Date.new(2014,3,14)
                                    })
       end
-      it('- filename_counter') { @bump_file.last_filename_counter.should == 1 }
-      it('- name') { @bump_file.name.should == 'abra.20140314.cadabra.1.log' }
-      it('- complete_path') { @bump_file.complete_path.should == File.join(@bump_file.directory_path, 'abra.20140314.cadabra.1.log') }
+      it('- filename_counter') { expect(@bump_file.last_filename_counter).to eq(1) }
+      it('- name') { expect(@bump_file.name).to eq('abra.20140314.cadabra.1.log') }
+      it('- complete_path') { expect(@bump_file.complete_path).to eq(File.join(@bump_file.directory_path, 'abra.20140314.cadabra.1.log')) }
     end
     context "append" do
       before(:each) do
@@ -66,9 +66,9 @@ describe BumpFile do
                                        append: true
                                      })
       end
-      it('- filename_counter') { @bump_file.last_filename_counter.should == 0 }
-      it('- name') { @bump_file.name.should == 'abra.20140314.cadabra.0.log' }
-      it('- complete_path') { @bump_file.complete_path.should == File.join(@bump_file.directory_path, 'abra.20140314.cadabra.0.log') }
+      it('- filename_counter') { expect(@bump_file.last_filename_counter).to eq(0) }
+      it('- name') { expect(@bump_file.name).to eq('abra.20140314.cadabra.0.log') }
+      it('- complete_path') { expect(@bump_file.complete_path).to eq(File.join(@bump_file.directory_path, 'abra.20140314.cadabra.0.log')) }
     end
     context "pre-existing file on counter #42" do
       before(:each) do
@@ -79,9 +79,9 @@ describe BumpFile do
                                      process_date: Date.new(2014,2,14)
                                    })
       end
-      it('- last_filename_counter') { @bump_file.last_filename_counter.should == 43 }
-      it('- name') { @bump_file.name.should == 'asdf.20140214.qwer.43.json' }
-      it('- complete_path') { @bump_file.complete_path.should == File.join(GEM_ROOT,'spec/test_data', 'asdf.20140214.qwer.43.json') }
+      it('- last_filename_counter') { expect(@bump_file.last_filename_counter).to eq(43) }
+      it('- name') { expect(@bump_file.name).to eq('asdf.20140214.qwer.43.json') }
+      it('- complete_path') { expect(@bump_file.complete_path).to eq(File.join(GEM_ROOT,'spec/test_data', 'asdf.20140214.qwer.43.json')) }
     end
   end
   describe "#write" do
@@ -97,12 +97,12 @@ describe BumpFile do
       after(:each) do
         @bump_file.delete
       end
-      it('- no exception') { lambda { @bump_file.write('This is bogus') }.should_not raise_exception }
+      it('- no exception') { expect { @bump_file.write('This is bogus') }.not_to raise_exception }
       it('- can read what was written') {
         @bump_file.write('This is bogus')
         # Because of the random seeding of test order this spec may run before the one above
         # So "This is bogus" may be printed once or twice.
-        @bump_file.read.should =~ /This is bogus/
+        expect(@bump_file.read).to match(/This is bogus/)
       }
     end
   end
